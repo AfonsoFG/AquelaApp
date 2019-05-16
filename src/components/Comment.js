@@ -2,9 +2,9 @@ import React from 'react'
 
 const Comment = ({ commentData }) => 
         <div className='post-comment'>
-          <span>{ commentData.user }</span>
-          <span>{ commentData.email }</span>
-          <p>{ commentData.comment }</p>
+          <span>{ commentData.id }</span>
+          <span>{ commentData.data }</span>
+          <p>{ commentData.conteudo }</p>
         </div>
 
 export default Comment

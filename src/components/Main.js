@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Post, Header, Footer, About } from './../components'
 
-class Blog extends Component {
+class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -30,7 +30,7 @@ class Blog extends Component {
     let posts = [];
     if (listaPosts.length > 0) {
       listaPosts.map((post) => {
-        posts.push(
+        return posts.push(
           <Post dataPosts={ post } />
         );
       });
@@ -52,4 +52,4 @@ class Blog extends Component {
   }
 }
 
-export default Blog
+export default Main
