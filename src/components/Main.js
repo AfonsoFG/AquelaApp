@@ -24,8 +24,7 @@ class Blog extends Component {
   componentDidUpdate() {
 
   }
-  git init
-  
+
   printPosts = () => {
     let listaPosts = this.state.data;
     let posts = [];
