@@ -1,0 +1,10 @@
+{
+    "url": "https://afonsofg.herokuapp.com",
+    "version": "0.1.0",
+    "endpoints": {
+      "posts": "/posts",
+      "post": "/post",
+      "comments": "/comments"
+    }
+  }
+  

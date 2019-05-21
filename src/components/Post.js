@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Comment } from './../components'
+import api from '../configs/api'
+import { Button } from "reakit/Button";
+
 class Post extends Component {
   constructor(props) {
     super(props)
@@ -8,12 +11,15 @@ class Post extends Component {
     }
   }
 
+
+  
+
   componentDidMount() {
     this.getComments(this.props.dataPosts.id);
   }
 
   getComments (id) {
-    fetch('http://localhost:3001/post/' + id + '?q=comentarios')
+    fetch(api.url + api.endpoints.post + '/' + id + '?q=comentarios')
     .then((response) => {
       return response.json();
     })
@@ -39,14 +45,15 @@ class Post extends Component {
     return comments;
   }
 
-
   render(){
     let postData = this.props.dataPosts
+    
     return (
       <Fragment>
         <div className='post-title'>{ postData.titulo }</div>
         <div className='post-content'>{ postData.conteudo }</div>
         { this.printComments() }
+        <Button className='btn  btn-sm btn-info'>Button</Button>
         <hr/>
       </Fragment>
     )

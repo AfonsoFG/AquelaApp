@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Post, Header, Footer, About } from './../components'
+import api from '../configs/api'
 
 class Main extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/posts')
+    fetch(api.url + api.endpoints.posts)
     .then((response) => {
       return response.json();
     })
