@@ -1,56 +1,42 @@
 import React, { Component, Fragment } from 'react'
-import { Post, Header, Footer, About } from './../components'
-import api from '../configs/api'
+import { Header, Footer } from './../components'
+import { Link } from "react-router-dom";
+import '../assets/css/App.css';
 
 class Main extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: []
+    
+    render() {
+        return (
+        <Fragment>
+            <Header/>
+            <section className="container pageBody pageMain">
+                <div className='row'>
+                    <div className='col-md-3'>
+                        <div className="box">
+                            <Link to='/blog'>Blog</Link>
+                        </div>
+                    </div>
+                    <div className='col-md-3'>
+                        <div className="box">
+                            <Link to='/metronome'>Metronome</Link>
+                        </div>
+                    </div>
+                    <div className='col-md-3'>
+                        <div className="box">
+                            <Link to='/calculator'>Calculator</Link>
+                        </div>
+                    </div>
+                    <div className='col-md-3'>
+                        <div className="box">
+                            <Link to='/sobre'>Sobre</Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <Footer/>
+        </Fragment>
+        )
     }
-  }
-
-  componentDidMount() {
-    fetch(api.url + api.endpoints.posts)
-    .then((response) => {
-      return response.json();
-    })
-    .then((json) => {
-       this.setState({
-         data: json
-       });
-    });
-  }
-  
-  componentDidUpdate() {
-
-  }
-
-  printPosts = () => {
-    let listaPosts = this.state.data;
-    let posts = [];
-    if (listaPosts.length > 0) {
-      listaPosts.map((post) => {
-        return posts.push(
-          <Post dataPosts={ post } />
-        );
-      });
-    }
-    return posts;
-  }
-
-  render() {
-    return (
-      <div className='container'>
-        <Header />
-        <div className='row col-md-12'>
-          <div className='col-md-9 main-col'>{ this.printPosts() }</div>
-          <div className='col-md-3 right-col'><About /></div>
-        </div>  
-        <Footer />  
-      </div>
-    )
-  }
 }
 
 export default Main

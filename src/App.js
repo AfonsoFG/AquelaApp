@@ -1,16 +1,17 @@
 import React from 'react';
-import { Main, About } from './components'
-import { BrowserRouter,  Route } from "react-router-dom";
-import './App.css';
+import { Main, Blog, About, Metronome, Calculator } from './components'
+import { Route, Switch } from "react-router-dom";
+import './assets/css/App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
+    <Switch>
         <Route exact path='/' component={Main} />
+        <Route exact path='/blog' component={Blog} />
+        <Route exact path='/metronome' component={Metronome} />
+        <Route exact path='/calculator' component={Calculator} />
         <Route exact path='/about' component={About} />
-      </div>
-    </BrowserRouter>
+    </Switch>
   );
 }
 

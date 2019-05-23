@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0
+}
+
+/* TODAS PAGINAS */
+
+.pageBody {
+  min-height: 500px
+}
+
+.pageBody h3 {
+  color: #78a04c;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+}
+
+
+/* PAGINA MAIN */
+.pageMain {
+  min-height: 0
+}
+
+.pageMain .box {
+  border: 1px solid #999;
+  text-align: center;
+  line-height: 150px;
+}
+
+.pageMain .box a {
+  background: #78A04C;
+  color: #FFF;
+  text-decoration: none;
+  display: block
+}
+
+.pageMain .box a:hover {
+  background: #FF0000
+}
+
+.pageMain > .row {
+  margin: 250px 0
+}
+
+/* HEADER */
+header {
+  background: #78A04C;
+  color: #FFF;
+  margin-bottom: 40px
+}
+
+header a {
+  color: #FFF;
+  margin-right: 10px
+}
+
+header a:hover {
+  color: #FFF;
+  text-decoration: underline
+}
+
+/* FOOTER */
+footer {
+  background: #78A04C;
+  color: #FFF;
+  margin-top: 40px;
+  margin-bottom: 0
+}
+
+footer a {
+  color: #FFF;
+}
+
+footer a:hover {
+  text-decoration: dashed
+}
+
+
+
+/* Sidebar - About */
+.section-about h5 {
+  font-weight: 700;
+  color: #78A04C
+}
+
+
+/* PAGE CALCULATOR */
+.pageCalculator button {
+  padding: 5px;
+  margin-bottom: 10px
+}
+
+.pageCalculator .visor {
+  background: #e3e3e3;
+  margin: 10px 0;
+  text-align: right;
+}
+
+
+.pageCalculator .resultado {
+  font-size: 50px;
+  line-height: 60px;
+  font-weight: 700;
+  min-height: 60px
+}
+
+.pageCalculator .input {
+  font-size: 18px;
+  line-height: 20px;
+  min-height: 20px;
+  margin-top:10px
+}
