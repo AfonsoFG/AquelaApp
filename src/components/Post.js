@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
-import { Comment } from './../components'
+import { Comment, CommentForm} from './../components'
 import api from '../configs/api'
 import { Button } from "reakit/Button";
+
 
 class Post extends Component {
   constructor(props) {
@@ -11,8 +12,6 @@ class Post extends Component {
     }
   }
 
-
-  
 
   componentDidMount() {
     this.getComments(this.props.dataPosts.id);
@@ -25,9 +24,8 @@ class Post extends Component {
     })
     .then((json) => {
       const comments = this.state.comentarios;
-      comments.push(json);
        this.setState({
-         comentarios: comments
+         comentarios: json.comentario
        });
     });
   }
@@ -50,11 +48,12 @@ class Post extends Component {
     
     return (
       <Fragment>
-        <div className='post-title'>{ postData.titulo }</div>
-        <div className='post-content'>{ postData.conteudo }</div>
-        { this.printComments() }
-        <Button className='btn  btn-sm btn-info'>Button</Button>
+        <h4 className='post-title'>{ postData.titulo }</h4>
+        <div dangerouslySetInnerHTML={{ __html: postData.conteudo }} className='post-content'/>
         <hr/>
+        { this.printComments() }
+        <CommentForm/>
+        <hr/><hr/>
       </Fragment>
     )
   }

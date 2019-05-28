@@ -47,7 +47,7 @@ class Blog extends Component {
             <div className="container pageBody pageBlog">
                 <div className='row'>
                     <div className='col-md-9 main'>
-                        <h3>Blog</h3>
+                        <h2>Blog</h2>
                         { this.printPosts() }
                     </div>
                     <div className='col-md-3 sidebar'>

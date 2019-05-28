@@ -4,6 +4,7 @@ export { default as Post } from './Post'
 export { default as About } from './About'
 export { default as Metronome } from './Metronome'
 export { default as Calculator } from './Calculator'
+export { default as Erro404 } from './Erro404'
 
 // SITE SECTIONS
 export { default as Main } from './Main'
@@ -15,8 +16,8 @@ export { default as Footer } from './Footer'
 export { default as AboutSection } from './AboutSection'
 
 // BLOG
-
 export { default as Comment } from './Comment'
+export { default as CommentForm } from './CommentForm'
 
 // METRONOME
 export { default as Heading } from './Heading'
