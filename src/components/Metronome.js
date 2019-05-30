@@ -69,7 +69,7 @@ class Metronome extends Component {
         return (
         <Fragment>
             <Header/>
-            <div class="container pageBody pageMetronome">
+            <div className="container pageBody pageMetronome">
                 <div className='row'>
                     <div className='col-md-9 main'>
                         <div className="slideContainer">
@@ -89,6 +89,7 @@ class Metronome extends Component {
         </Fragment>
         )
     }
+    
 }
 
 export default Metronome
