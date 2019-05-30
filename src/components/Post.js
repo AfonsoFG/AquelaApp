@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Comment, CommentForm} from './../components'
 import api from '../configs/api'
-import { Button } from "reakit/Button";
+import { Link } from "react-router-dom";
 
 
 class Post extends Component {
@@ -23,7 +23,6 @@ class Post extends Component {
       return response.json();
     })
     .then((json) => {
-      const comments = this.state.comentarios;
        this.setState({
          comentarios: json.comentario
        });
@@ -44,12 +43,13 @@ class Post extends Component {
   }
 
   render(){
-    let postData = this.props.dataPosts
-    
+    let postData = this.props.dataPosts;
+    let preview = postData.conteudo.substring(0, 250);
     return (
       <Fragment>
         <h4 className='post-title'>{ postData.titulo }</h4>
-        <div dangerouslySetInnerHTML={{ __html: postData.conteudo }} className='post-content'/>
+        <div dangerouslySetInnerHTML={{ __html: preview }} className='post-content'/>
+        <Link to={`/post/${postData.id}`} className="lermais">Ler mais</Link>
         <hr/>
         { this.printComments() }
         <CommentForm/>

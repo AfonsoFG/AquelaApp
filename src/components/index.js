@@ -1,6 +1,7 @@
 // SITE PAGES
 export { default as Blog } from './Blog'
 export { default as Post } from './Post'
+export { default as SinglePost } from './SinglePost'
 export { default as About } from './About'
 export { default as Metronome } from './Metronome'
 export { default as Calculator } from './Calculator'

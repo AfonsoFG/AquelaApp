@@ -1,18 +1,18 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 class CommentForm extends Component {
-    
+    /*
     constructor(props) {
       super(props)
       
     }
-
+    */
     componentDidMount() {
-        
+        console.log('CommentForm DidMount');
     }
 
     addComment() {
-
+        console.log('Disparou addComment');
     }
     
     render() {
