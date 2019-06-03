@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from 'react'
-import { Post, Header, Footer, Sidebar } from './../components'
-import api from '../configs/api'
+import { Header, Footer, Sidebar } from './../components'
 
 class Erro404 extends Component {
-
     
     render() {
         return (

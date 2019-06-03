@@ -1,5 +1,5 @@
 {
-    "url": "https://afonsofg.herokuapp.com",
+    "url": "https://aquelaapi.herokuapp.com",
     "version": "0.1.0",
     "endpoints": {
       "posts": "/posts",

@@ -33,7 +33,7 @@ class Blog extends Component {
         if (listaPosts.length > 0) {
             listaPosts.map((post) => {
                 return posts.push(
-                    <Post dataPosts={ post } />
+                    <Post dataPosts={ post } key={post.id} />
                 );
             });
         }
