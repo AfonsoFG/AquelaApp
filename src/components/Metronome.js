@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import Som1 from '../assets/sounds/click1.wav';
-import Som2 from '../assets/sounds/click2.wav';
+import MetroBar0 from '../assets/sounds/MetroBar0.wav';
+import MetroBeat0 from '../assets/sounds/MetroBeat0.wav';
 import '../assets/css/App.css';
 
 import { Header, Footer, Sidebar, Slider, Heading, Button  } from './'
@@ -15,8 +15,8 @@ class Metronome extends Component {
           bpm: 100
         }
     
-        this.som1 = new Audio(Som1);
-        this.som2 = new Audio(Som2);
+        this.bar = new Audio(MetroBar0);
+        this.beat = new Audio(MetroBeat0);
     
         this.beatNumber = 0;
       }
@@ -29,9 +29,9 @@ class Metronome extends Component {
     
       playClick = () => {
         if (this.beatNumber === 0) {
-          this.som2.play();
+          this.beat.play();
         } else {
-          this.som1.play();
+          this.bar.play();
         }
         if (this.beatNumber < 3) {
           this.beatNumber++;
@@ -73,7 +73,40 @@ class Metronome extends Component {
                 <div className='row'>
                     <div className='col-md-9 main'>
                         <div className="slideContainer">
-                          <h3>Metronome</h3>
+							<h3>Metronome</h3>
+							<div className="row">
+								<div className='col-md-6'>
+									<p>Som 1</p>
+									<select>
+										<option value="MetroBar0.wav">Metro Bar 0</option>
+										<option value="MetroBeat0.wav">Metro Beat 0</option>
+										<option value="MetroBar1.wav">Metro Bar 1</option>
+										<option value="MetroBeat1.wav">Metro Beat 1</option>
+										<option value="MetroBar2.wav">Metro Bar 2</option>
+										<option value="MetroBeat2.wav">Metro Beat 2</option>
+										<option value="MetroBar3.wav">Metro Bar 3</option>
+										<option value="MetroBeat3.wav">Metro Beat 3</option>
+										<option value="MetroBar4.wav">Metro Bar 4</option>
+										<option value="MetroBeat4.wav">Metro Beat 4</option>
+									</select>
+								</div>
+								<div className='col-md-6'>
+									<p>Som 2</p>
+									<select>
+										<option value="MetroBar0.wav">Metro Bar 0</option>
+										<option value="MetroBeat0.wav">Metro Beat 0</option>
+										<option value="MetroBar1.wav">Metro Bar 1</option>
+										<option value="MetroBeat1.wav">Metro Beat 1</option>
+										<option value="MetroBar2.wav">Metro Bar 2</option>
+										<option value="MetroBeat2.wav">Metro Beat 2</option>
+										<option value="MetroBar3.wav">Metro Bar 3</option>
+										<option value="MetroBeat3.wav">Metro Beat 3</option>
+										<option value="MetroBar4.wav">Metro Bar 4</option>
+										<option value="MetroBeat4.wav">Metro Beat 4</option>
+									</select>
+								</div>
+							</div>
+						  
                             <Heading bpm={bpm}></Heading>
                             <Slider var1={bpm} var2={this.changeBPM}></Slider>
                             <br/>
