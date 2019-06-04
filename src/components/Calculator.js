@@ -46,6 +46,7 @@ class Calculator extends Component {
                         <h3>CALCULADORA</h3>
                         <Visor resultado={ this.state.resultado } input={ this.state.input }></Visor>
                         <KeyPad onClick={this.onClick}></KeyPad>
+						<p>Oi</p>
                     </div>
                     <div className='col-md-3 sidebar'>
                         <Sidebar/>
