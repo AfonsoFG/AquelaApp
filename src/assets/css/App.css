@@ -13,6 +13,10 @@ html, body {
   padding: 0
 }
 
+a, .navbar-brand path {
+transition: all 0.2s linear
+}
+
 /* TODAS PAGINAS */
 
 .pageBody {
@@ -55,39 +59,110 @@ html, body {
 }
 
 /* HEADER */
-header {
+.navbar {
   background: #78A04C;
   color: #FFF;
-  margin-bottom: 40px
+  margin-bottom: 60px
 }
 
-header a {
+.navbar a {
   color: #FFF;
   margin-right: 10px
 }
 
-header a:hover {
+.navbar a:hover {
   color: #FFF;
   text-decoration: underline
 }
 
+.navbar-brand svg {
+display:block;
+height: 25px
+}
+
+.navbar-brand path {
+   fill: #FFF;
+}
+
+.navbar-brand:hover path {
+   fill: #001122
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+background: transparent
+}
+
+
 /* FOOTER */
 footer {
-  background: #78A04C;
-  color: #FFF;
-  margin-top: 40px;
-  margin-bottom: 0
-}
-
-footer a {
-  color: #FFF;
-}
-
-footer a:hover {
-  text-decoration: dashed
+    padding-bottom: 2rem;
 }
 
 
+
+footer .footer-top {
+    height: 3.9375rem;
+    background: #3b454a;
+}
+
+
+
+footer .footer-scroll {
+    text-align: right;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+
+footer .footer__links {
+    background: #242b2e;
+    color: #fff;
+    font-size: .875rem;
+    font-weight: 500;
+}
+
+footer .footer__links-title {
+    font-family: Muli,Muli-local,sans-serif;
+    font-weight: 900;
+    font-size: .75rem;
+    color: #82939c;
+    text-transform: uppercase;
+    margin-bottom: .625rem;
+}
+
+footer .footer__links a.link {
+    display: block;
+    font-size: .875rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 1.0625rem;
+}
+
+footer .footer__legal {
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255,255,255,.25);
+}
+footer .footer__legal .row {
+    max-width: 78.125rem;
+    padding: 0 2rem;
+}
+
+footer .footer__legal-copyright {
+    display: inline-block;
+    font-size: .875rem;
+    margin-right: 2rem;
+    color: #82939c;
+}
+
+footer .footer__legal-link {
+    display: inline-block;
+}
+
+footer .footer__legal-link a {
+    color: #82939c;
+    font-size: .875rem;
+    margin: 0 5px;
+}
 
 /* Sidebar - About */
 .section-about h5 {

@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from '../assets/img/logo.svg';
 
 class Header extends Component {
     render() {
         return (
         <header>
-            <div className="container">
-                <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3">
-                    <Link to='/' className="my-0 mr-md-auto font-weight-normal">Site XPTO</Link>
-                    <nav className="my-2 my-md-0 mr-md-3">
-                        <Link to='/blog' className="">Blog</Link>
-                        <Link to='/metronome' className="">Metronome</Link>
-                        <Link to='/calculator' className="">Calculator</Link>
-                        <Link to='/about' className="">About</Link>
-                    </nav>
+            <nav className="navbar navbar-fixed-top">
+                <div className="container">
+                    <div className="navbar-header">
+                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span className="sr-only">Menu</span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                        </button>
+                        <Link to='/' className="navbar-brand"><Logo /></Link>
+                    </div>
+                    <div id="navbar" className="navbar-collapse collapse">
+                        <ul className="nav navbar-nav navbar-right">
+                            <li><Link to='/blog' className="">Blog</Link></li>
+                            <li><Link to='/metronome' className="">Metronome</Link></li>
+                            <li><Link to='/calculator' className="">Calculator</Link></li>
+                            <li><Link to='/about' className="">About</Link></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </nav>          
         </header>
         );
     }
