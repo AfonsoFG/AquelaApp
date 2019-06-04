@@ -23,7 +23,9 @@ class Header extends Component {
                             <li><Link to='/metronome' className="">Metronome</Link></li>
                             <li><Link to='/calculator' className="">Calculator</Link></li>
                             <li><Link to='/about' className="">About</Link></li>
+							<div class="underbar"></div>
                         </ul>
+						
                     </div>
                 </div>
             </nav>          

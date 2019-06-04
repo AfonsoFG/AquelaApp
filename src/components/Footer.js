@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../assets/img/logo.svg';
 import { ReactComponent as UpArrow } from '../assets/img/up-arrow.svg';
 
@@ -14,10 +15,10 @@ class Footer extends Component {
                         <p>oi</p>
                     </div>
                     <div className="col-md-6 footer-scroll">
-                        <a href="#__" className="smooth">
+						<Link to='#top' className="smooth">
                             <span>Para o topo</span>
                             <UpArrow />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -26,39 +27,48 @@ class Footer extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-3 col-logo">
-                        <a href="/" className="footer-logo"><Logo /></a>
+						<Link to='/' className="footer-logo"><Logo /></Link>
                         <div className="link-title">Heading 1</div>
-                        <a className="link" href="#">Link 1</a>
-                        <a className="link" href="#">Link 3</a>
+						<ul>
+							<li><Link to='/about' className="">Link 1</Link></li>
+							<li><Link to='/about' className="">Link 2</Link></li>
+						</ul>
                     </div>
                     <div className="col-md-3">
                         <div className="link-title">Heading 1</div>
-						<a className="link" href="#">Link 1</a>
-						<a className="link" href="#">Link 2</a>
-						<a className="link" href="#">Link 3</a>
-						<a className="link" href="#">Link 4</a>
+						<ul>
+							<li><Link to='/about' className="link">Link 1</Link></li>
+							<li><Link to='/about' className="link">Link 2</Link></li>
+							<li><Link to='/about' className="link">Link 3</Link></li>
+							<li><Link to='/about' className="link">Link 4</Link></li>
+						</ul>
                     </div>   
                     <div className="col-md-3">
                         <div className="link-title">Heading 2</div>
-						<a className="link" href="#">Link 1</a>
-						<a className="link" href="#">Link 2</a>
-						<a className="link" href="#">Link 3</a>
-						<a className="link" href="#">Link 4</a>
+						<ul>
+							<li><Link to='/about' className="link">Link 1</Link></li>
+							<li><Link to='/about' className="link">Link 2</Link></li>
+							<li><Link to='/about' className="link">Link 3</Link></li>
+							<li><Link to='/about' className="link">Link 4</Link></li>
+						</ul>
                     </div>
                     <div className="col-md-3 ">
-                        <div className="link-section">
-                            <div className="link-title">Heading 3</div>
-                            <a className="link" href="#">Link 1</a>
-                            <a className="link" href="#">Link 2</a>
-                            <a className="link" href="#">Link 3</a>
-                            <a className="link" href="#">Link 4</a>
-                            <div className="link-social">
-                                <a className="linkedin" href="#" target="_blank" ref="noopener noreferrer"></a>
-                                <a className="twitter" href="#" target="_blank" ref="noopener noreferrer"></a>
-                                <a className="facebook" href="#" target="_blank" ref="noopener noreferrer"></a>
-                                <a className="instagram" href="#" target="_blank" ref="noopener noreferrer"></a>
-                            </div>
-                        </div>
+                       
+					   
+						<div className="link-title">Heading 3</div>
+						<ul>
+							<li><Link to='/about' className="link">Link 1</Link></li>
+							<li><Link to='/about' className="link">Link 2</Link></li>
+							<li><Link to='/about' className="link">Link 3</Link></li>
+							<li><Link to='/about' className="link">Link 4</Link></li>
+						</ul>
+						<div className="link-social">
+							<a href='https://linkedin.com' target="_blank" rel="noopener noreferrer" className="linkedin">L</a>
+							<a href='https://twitter.com' target="_blank" rel="noopener noreferrer" className="twitter">T</a>
+							<a href='https://facebook.com' target="_blank" rel="noopener noreferrer" className="facebook">F</a>
+							<a href='https://instagram.com' target="_blank" rel="noopener noreferrer" className="instagram">I</a>
+						</div>
+                       
                     </div>
                 </div>
             </div>
