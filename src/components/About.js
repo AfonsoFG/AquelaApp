@@ -7,7 +7,7 @@ class About extends Component {
         return (
         <Fragment>
             <Header/>
-            <div class="container pageBody pageAbout">
+            <div className="container pageBody pageAbout">
                 <div className='row'>
                     <div className='col-md-9 main'>
                         <h3>About me</h3>

@@ -6,7 +6,7 @@ class Header extends Component {
     render() {
         return (
         <header>
-            <nav className="navbar navbar-fixed-top">
+            <nav className="navbar navbar-fixed-top" id="topo">
                 <div className="container">
                     <div className="navbar-header">
                         <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -23,7 +23,7 @@ class Header extends Component {
                             <li><Link to='/metronome' className="">Metronome</Link></li>
                             <li><Link to='/calculator' className="">Calculator</Link></li>
                             <li><Link to='/about' className="">About</Link></li>
-							<div class="underbar"></div>
+							<div className="underbar"></div>
                         </ul>
 						
                     </div>

@@ -1,14 +1,9 @@
 import React, { Component, Fragment } from 'react';
 
 class Comment extends Component {
-    /*
-    constructor(props) {
-        super(props)
-    }
-    */
 
     componentDidMount() {
-        console.log('Comment DidMount');
+        
     }
   
     render() {

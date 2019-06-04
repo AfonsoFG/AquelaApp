@@ -276,11 +276,11 @@ footer .footer-mid ul li {
 }
 
 footer .footer-mid a {
-
     font-size: .875rem;
     font-weight: 500;
     color: #fff;
-	text-decoration: none
+    text-decoration: none;
+    cursor: pointer
 }
 footer .footer-mid a:hover {
 	color: #e87e04;
