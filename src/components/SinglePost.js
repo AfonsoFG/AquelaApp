@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Comment, CommentForm, Header, Footer, Sidebar } from './../components'
+import { Comment, CommentForm, AppSectionHeader, AppSectionFooter, AppSectionSidebar} from './../components'
 import api from '../configs/api'
 
 class SinglePost extends Component {
@@ -46,7 +46,7 @@ class SinglePost extends Component {
         let post = this.state.post;
         return (
             <Fragment>
-                <Header />
+                <AppSectionHeader />
                 <div className="container pageBody pageMetronome">
                     <div className='row'>
                         <div className='col-md-9 main'>
@@ -58,11 +58,11 @@ class SinglePost extends Component {
                             </div>
                         </div>
                         <div className='col-md-3 sidebar'>
-                            <Sidebar />
+                            <AppSectionSidebar />
                         </div>
                     </div>
                 </div>
-                <Footer />
+                <AppSectionFooter />
             </Fragment>
         )
     }

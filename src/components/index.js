@@ -5,13 +5,13 @@ export { default as SinglePost } from './SinglePost'
 export { default as About } from './About'
 export { default as Metronome } from './Metronome'
 export { default as Calculator } from './Calculator'
-export { default as Erro404 } from './Erro404'
+export { default as Error404 } from './Error404'
 
 // SITE SECTIONS
 export { default as Main } from './Main'
-export { default as Header } from './Header'
-export { default as Sidebar } from './Sidebar'
-export { default as Footer } from './Footer'
+export { default as AppSectionHeader } from './AppSectionHeader'
+export { default as AppSectionSidebar } from './AppSectionSidebar'
+export { default as AppSectionFooter } from './AppSectionFooter'
 
 // SIDEBAR SECTIONS
 export { default as AboutSection } from './AboutSection'
@@ -22,10 +22,17 @@ export { default as CommentForm } from './CommentForm'
 
 
 // METRONOME
-export { default as Heading } from './Heading'
-export { default as Button } from './Button'
-export { default as Slider } from './Slider'
+export { default as MetronomeStats } from './MetronomeStats'
+export { default as MetronomeButton } from './MetronomeButton'
+export { default as MetronomeRange } from './MetronomeRange'
+export { default as MetronomeSelect } from './MetronomeSelect'
+export { default as MetronomeSelectOption } from './MetronomeSelectOption'
 
 // CALCULATOR
-export { default as Visor } from './Visor'
-export { default as KeyPad } from './KeyPad'
+export { default as CalculatorScreen } from './CalculatorScreen'
+export { default as CalculatorKeyPad } from './CalculatorKeyPad'
+
+// WEATHER
+export { default as Weather } from './Weather'
+export { default as WeatherInfo } from './WeatherInfo'
+export { default as WeatherForecast } from './WeatherForecast'

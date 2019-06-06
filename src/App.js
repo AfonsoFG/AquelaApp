@@ -1,19 +1,21 @@
 import React from 'react';
-import { Main, Blog, About, Metronome, Calculator, SinglePost } from './components'
+import { Main, Blog, About, Metronome, Calculator, SinglePost, Error404, Weather } from './components'
 import { Route, Switch } from "react-router-dom";
 import './assets/css/App.css';
 
 function App() {
-  return (
-    <Switch>
-        <Route exact path='/' component={Main} />
-        <Route exact path='/blog' component={Blog} />
-        <Route exact path='/post/:id' component={SinglePost} />
-        <Route exact path='/metronome' component={Metronome} />
-        <Route exact path='/calculator' component={Calculator} />
-        <Route exact path='/about' component={About} />
-    </Switch>
-  );
+    return (
+        <Switch>
+            <Route exact path='/' component={Main} />
+            <Route exact path='/blog' component={Blog} />
+            <Route exact path='/post/:id' component={SinglePost} />
+            <Route exact path='/metronome' component={Metronome} />
+            <Route exact path='/calculator' component={Calculator} />
+            <Route exact path='/weather' component={Weather} />
+            <Route exact path='/about' component={About} />
+            <Route component={Error404} />
+        </Switch>
+    );
 }
 
 export default App;

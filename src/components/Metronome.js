@@ -12,7 +12,9 @@ import MetroBeat3 from '../assets/sounds/MetroBeat3.wav';
 import MetroBar4 from '../assets/sounds/MetroBar4.wav';
 import MetroBeat4 from '../assets/sounds/MetroBeat4.wav';
 
-import { Header, Footer, Sidebar, Slider, Heading, Button } from './'
+import { ReactComponent as MetronomoMachine } from '../assets/img/metronome/metronome.svg';
+
+import { AppSectionHeader, AppSectionFooter, MetronomeSelect, MetronomeRange, MetronomeStats, MetronomeButton } from './'
 
 const sounds = {
     'MetroBar0': MetroBar0,
@@ -33,131 +35,119 @@ class Metronome extends Component {
         super();
 
         this.state = {
-            aTocar: false,
-            bpm: 100
+            playing: false,
+            bpm: 60,
+            beatsPerMeasure: 4,
+            beatNumber: 0
         }
 
         this.bar = new Audio(MetroBar0);
         this.beat = new Audio(MetroBeat0);
 
-        this.beatNumber = 0;
     }
 
     componentWillUnmount() {
-        if (this.state.aTocar) {
-            this.togglePlay();
+        if (this.state.playing) {
+            this.startStop();
         }
     }
 
     selectSound = () => {
-        let selectSound1 = document.getElementById("selectSound1");
-        let selectSound2 = document.getElementById("selectSound2");
+        let selectSoundBeat = document.getElementById("selectSoundBeat");
+        let selectSoundBar = document.getElementById("selectSoundBar");
 
-        let som1 = selectSound1.options[selectSound1.selectedIndex].value;
-        let som2 = selectSound2.options[selectSound2.selectedIndex].value;
+        let soundBeat = selectSoundBeat.options[selectSoundBeat.selectedIndex].value;
+        let soundBar = selectSoundBar.options[selectSoundBar.selectedIndex].value;
 
-        this.bar = new Audio(sounds[som1]);
-        this.beat = new Audio(sounds[som2]);
+        this.beat = new Audio(sounds[soundBeat]);
+        this.bar = new Audio(sounds[soundBar]);
+
+    }
+
+    changeBPM = (bpm) => {
+        clearInterval(this.timerId);
+        this.setState({ bpm, playing: false });
+        document.getElementById("pendulum").style.animation = "";
     }
 
     playClick = () => {
 
         this.selectSound();
+        const { beatNumber, beatsPerMeasure } = this.state;
 
-        if (this.beatNumber === 0) {
+        // The first beat will have a different sound than the others
+        if (beatNumber % beatsPerMeasure === 0) {
             this.beat.play();
         } else {
             this.bar.play();
         }
-        if (this.beatNumber < 3) {
-            this.beatNumber++;
-        } else {
-            this.beatNumber = 0;
-        }
-    }
 
-    togglePlay = () => {
-
-        this.selectSound();
-
-        if (this.state.aTocar) {
-            // STOP
-            clearInterval(this.timerId);
-
-        } else {
-            // PLAY
-            this.timerId = setInterval(this.playClick, (60 / this.state.bpm) * 1000);
-
-        }
-
+        // Keep track of which beat we're on
         this.setState({
-            aTocar: !this.state.aTocar
+            beatNumber: (beatNumber + 1) % beatsPerMeasure
         });
-    }
+    };
 
-    changeBPM = (bpm) => {
-        clearInterval(this.timerId);
+
+    startStop = () => {
+        if (this.state.playing) {
+            //STOP
+            document.getElementById("pendulum").style.animation = "";
+            clearInterval(this.timerId);
+        } else {
+            //PLAY
+            let animDuration = 60 / this.state.bpm * 2;
+
+            document.getElementById("pendulum").style.animation = "pendulum " + animDuration + "s infinite 0.5s";
+            this.timerId = setInterval(this.playClick, (60 / (this.state.bpm)) * 1000);
+        }
+
+        this.beatNumber = 0;
+
         this.setState({
-            bpm,
-            aTocar: false
+            beatNumber: 0,
+            playing: !this.state.playing
         });
     }
 
     render() {
-        const { aTocar, bpm } = this.state;
+        const { playing, bpm, beatsPerMeasure, beatNumber } = this.state;
         return (
             <Fragment>
-                <Header />
+                <AppSectionHeader />
                 <div className="container pageBody pageMetronome">
                     <div className='row'>
-                        <div className='col-md-9 main'>
+                        <div className="col-md-12">
+                            <h3>Metronome</h3>
+                        </div>
+                        <div className='col-md-8 main'>
                             <div className="slideContainer">
-                                <h3>Metronome</h3>
+
                                 <div className="row">
-                                    <div className='col-md-6'>
-                                        <p>Som 1</p>
-                                        <select className="form-control" id="selectSound1">
-                                            <option value="MetroBar0">Metro Bar 0</option>
-                                            <option value="MetroBeat0">Metro Beat 0</option>
-                                            <option value="MetroBar1">Metro Bar 1</option>
-                                            <option value="MetroBeat1">Metro Beat 1</option>
-                                            <option value="MetroBar2">Metro Bar 2</option>
-                                            <option value="MetroBeat2">Metro Beat 2</option>
-                                            <option value="MetroBar3">Metro Bar 3</option>
-                                            <option value="MetroBeat3">Metro Beat 3</option>
-                                            <option value="MetroBar4">Metro Bar 4</option>
-                                            <option value="MetroBeat4">Metro Beat 4</option>
-                                        </select>
+                                    <div className='col-md-12'>
+                                        <label htmlFor="selectSoundBar">Bar Sound</label>
+                                        <MetronomeSelect id={"selectSoundBar"} defaultValue={"MetroBar0"} options={sounds} />
                                     </div>
-                                    <div className='col-md-6'>
-                                        <p>Som 2</p>
-                                        <select className="form-control" id="selectSound2">
-                                            <option value="MetroBar0">Metro Bar 0</option>
-                                            <option value="MetroBeat0">Metro Beat 0</option>
-                                            <option value="MetroBar1">Metro Bar 1</option>
-                                            <option value="MetroBeat1">Metro Beat 1</option>
-                                            <option value="MetroBar2">Metro Bar 2</option>
-                                            <option value="MetroBeat2">Metro Beat 2</option>
-                                            <option value="MetroBar3">Metro Bar 3</option>
-                                            <option value="MetroBeat3">Metro Beat 3</option>
-                                            <option value="MetroBar4">Metro Bar 4</option>
-                                            <option value="MetroBeat4">Metro Beat 4</option>
-                                        </select>
+                                    <div className='col-md-12'>
+                                        <label htmlFor="selectSoundBeat" className="mt20">Beat Sound</label>
+                                        <MetronomeSelect id={"selectSoundBeat"} defaultValue={"MetroBeat0"} options={sounds} />
                                     </div>
                                 </div>
 
-                                <Heading bpm={bpm}></Heading>
-                                <Slider var1={bpm} var2={this.changeBPM}></Slider>
+                                <MetronomeStats bpm={bpm} beatsPerMeasure={beatsPerMeasure} beatNumber={beatNumber} />
+                                <MetronomeRange value={bpm} handleChange={this.changeBPM} />
                                 <br />
-                                <Button var1={this.togglePlay} var2={aTocar}></Button>
+
+                                <MetronomeButton handleClick={this.startStop} isPlaying={playing} />
+
                             </div>
                         </div>
-                        <div className='col-md-3 sidebar'>
-                            <Sidebar />
+                        <div className='col-md-4'>
+                            <MetronomoMachine />
                         </div>
                     </div>
                 </div>
-                <Footer />
+                <AppSectionFooter />
             </Fragment>
         )
     }

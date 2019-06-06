@@ -8,10 +8,12 @@
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-inlinesvg": "^0.8.4",
     "react-paginate": "^6.3.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "react-scroll": "^1.7.11",
+    "react-select": "^3.0.4",
     "reakit": "^1.0.0-beta.1"
   },
   "scripts": {
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "expose-loader": "^0.7.5",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "json-loader": "^0.5.7"
   }
 }

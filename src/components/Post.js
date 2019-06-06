@@ -43,7 +43,7 @@ class Post extends Component {
 
     render() {
         let postData = this.props.dataPosts;
-        let preview = postData.conteudo.substring(0, 250);
+        let preview = postData.conteudo.substring(0, 250) + ' [...]';
         return (
             <Fragment>
                 <h4 className='post-title'>{postData.titulo}</h4>

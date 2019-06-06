@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Post, Header, Footer, Sidebar } from './../components'
+import { Post, AppSectionHeader, AppSectionFooter, AppSectionSidebar } from './../components'
 import api from '../configs/api'
 import ReactPaginate from 'react-paginate';
 
@@ -44,21 +44,30 @@ class Blog extends Component {
     render() {
         return (
         <Fragment>
-            <Header/>
+            <AppSectionHeader/>
             <div className="container pageBody pageBlog">
                 <div className='row'>
-                    <div className='col-md-9 main'>
+                    <div className='col-md-12'>
                         <h3>Blog</h3>
+                    </div>
+                    <div className='col-md-9 main'>
                         { this.printPosts() }
-                        <ReactPaginate pageCount={10} pageRangeDisplayed={5} marginPagesDisplayed={2} containerClassName={"pagination"} previousLabel={"Anterior"} nextLabel={"Próximo"}/>
+                        <ReactPaginate
+                            pageCount={10}
+                            pageRangeDisplayed={5}
+                            marginPagesDisplayed={2}
+                            containerClassName={"pagination"}
+                            previousLabel={"Anterior"}
+                            nextLabel={"Próximo"}
+                        />
 
                     </div>
                     <div className='col-md-3 sidebar'>
-                        <Sidebar/>
+                        <AppSectionSidebar/>
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <AppSectionFooter/>
         </Fragment>
         )
     }
