@@ -1,18 +1,39 @@
 import React, { Component } from 'react';
+import { WeatherForecastDay } from './../components/';
+import moment from 'moment';
 
 class WeatherForecast extends Component {
 
+    groupWeatherByDay = (list) => {
+        // Map() itera por ordem de inserção
+        const days = new Map()
+
+        list.forEach((w) => {
+            const day = moment(w.dt * 1000).format("dddd Do MMMM")
+            if (!days[day]) days[day] = []
+            days[day].push(w)
+        })
+
+        return days;
+    }
+
+    printDays() {
+        let forecast = this.props.forecast;
+
+        const agrupado = this.groupWeatherByDay( forecast || [] );
+        
+        const days = Object.keys(agrupado).map( (day, index) => (
+            <WeatherForecastDay key={day} today={index===0} day={day} dayData={agrupado[day]}/>
+        ));
+
+        return days;
+    }
+
     render() {
         return (
+            <div className="weather-info mt60">
 
-            <div className="weather-info mt20">
-                {
-                    this.props.forecast && <p className="weather__key">
-                        <span className="weather__value">  {JSON.stringify(this.props.forecast)}</span>
-                    </p>
-                }
-                
-                
+                { this.props.forecast && this.printDays() }
             </div>
         )
     }

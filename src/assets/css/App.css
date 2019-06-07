@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap');
 html,
 body {
     margin: 0;
@@ -22,10 +22,15 @@ a:focus {
     text-decoration: none
 }
 
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-style: oblique
+}
 
 /* TODAS PAGINAS */
 
 .pageBody {
+    font-family: 'Roboto', sans-serif;
     min-height: 600px;
     margin-top: 80px
 }
@@ -374,21 +379,58 @@ footer .link-social .facebook:hover path {
     fill: #1877f2
 }
 
-footer .link-social .twitter:hover path {
-    fill: #1da1f2
+footer .link-social .github:hover path {
+    fill: #4078c0
 }
 
 footer .link-social .linkedin:hover path {
     fill: #007bb5
 }
 
-/* Sidebar - About */
-
-.section-about h5 {
-    font-weight: 700;
-    color: #78A04C
+/* Sidebar */
+.sidebar .weatherBackground .col-md-6 {
+    width: 100%
+}
+.sidebar .weatherInfo .desc {
+    padding-top:0;
+    margin-top:-20px
 }
 
+.sidebar select {
+    margin-top: 10px
+}
+
+.sidebar h5 {
+    font-weight: 700;
+    color: #78A04C;
+}
+
+.sidebar .aboutSection h5 {
+    margin-top: 0
+}
+
+.sidebar .aboutSection p {
+    font-size: 0.75em;
+    line-height: 1.7em;
+    color: #AAA;
+    text-align: justify
+}
+
+.sidebar .aboutSection img {
+    width: 115px; 
+    float: left;
+    margin: 5px 10px 0 0;
+    border-radius: 4px
+}
+
+/* PAGE ABOUT */
+
+.pageAbout .main p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 0.9em;
+    line-height: 2em
+}
 
 /* PAGE CALCULATOR */
 
@@ -519,15 +561,107 @@ input[type=range]:focus::-ms-fill-upper {
 
 /* PAGE WEATHER*/
 
-.weatherIcon {
-    display: block;
-    width: 50px
+.pageWeather .weatherBackground,
+.sidebar .weatherBackground {
+    background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='1300px' height='300px' %3E%3Cdefs%3E%3ClinearGradient id='lgrad' x1='12%25' y1='100%25' x2='88%25' y2='0%25' %3E%3Cstop offset='0%25' style='stop-color:rgb(153,218,255);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(0,128,128);stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23lgrad)'/%3E%3C/svg%3E");
+    background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;
+    border-radius: 4px
 }
+.pageWeather .weatherVisual,
+.sidebar .weatherVisual {
+    text-align: center;
+    font-size: 14px;
+
+}
+.pageWeather .weatherVisual svg,
+.sidebar .weatherVisual svg {
+    display: block;
+    width: 60%;
+    margin: 20px auto 0
+}
+
+.pageWeather .weatherVisual path,
+.sidebar .weatherVisual path {
+    fill: #FFFFFF
+}
+
+.pageWeather .weatherInfo,
+.sidebar .weatherInfo {
+    font-size: 14px;
+    color: #FFF;
+    text-align: center;
+    padding-bottom: 10px
+}
+
+.weatherInfo .desc {
+    padding-top: 15px;
+    font-weight: 700
+}
+.weatherDay {
+    font-size: 14px;
+    text-align: center;
+    color: #FFF
+
+}
+.weatherDay svg {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    vertical-align: middle
+}
+.weatherDay svg path {
+    fill: #FFF
+}
+
+.weatherDay > div {
+    line-height: 50px
+}
+
+.badge {
+    margin-top: -5px;
+    margin-left: 10px;
+    border-radius: 4px;
+}
+.badge-temp-min {
+    background-color: #337ab7 !important;
+}
+.badge-temp-max {
+    background-color: #a94442 !important;
+}
+
+.forecastDayWeather {
+    margin-top: 30px;
+    padding-bottom:20px; 
+    background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='1920px' height='600px' %3E%3Cdefs%3E%3ClinearGradient id='lgrad' x1='50%25' y1='0%25' x2='50%25' y2='100%25' %3E%3Cstop offset='0%25' style='stop-color:rgb(20,35,91);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(149,97,161);stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='100%25' height='100%25' fill='url(%23lgrad)'/%3E%3C/svg%3E");
+    background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;
+    border-radius: 4px
+}
+
+.forecastDayWeather .day {
+    padding: 20px;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    color: #FFF;
+}
+
 /* HELPERS */
 
 .mt20 {
     margin-top: 20px
 }
+.mt40 {
+    margin-top: 40px
+}
+
+.mt60 {
+    margin-top: 60px
+}
+
 
 .verde {
     color: #78A04C
@@ -550,11 +684,24 @@ input[type=range]:focus::-ms-fill-upper {
     .underbar {
         display: none;
     }
-    .pageMain>.row {
+    .pageMain > .row {
         margin-top: 0;
         margin-bottom: 0
     }
+    .pageMain .box {
+        margin-bottom: 20px
+    }
+
     footer .link-title {
         margin-top: 50px
     }
+    .pageWeather .weatherVisual svg {
+        width: 40%
+    }
+
+    .pageWeather .weatherInfo {
+        padding-bottom: 20px;
+        margin-top: -20px;
+    }
+
 }

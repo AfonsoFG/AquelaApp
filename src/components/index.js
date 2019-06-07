@@ -20,13 +20,11 @@ export { default as AboutSection } from './AboutSection'
 export { default as Comment } from './Comment'
 export { default as CommentForm } from './CommentForm'
 
-
 // METRONOME
 export { default as MetronomeStats } from './MetronomeStats'
 export { default as MetronomeButton } from './MetronomeButton'
 export { default as MetronomeRange } from './MetronomeRange'
 export { default as MetronomeSelect } from './MetronomeSelect'
-export { default as MetronomeSelectOption } from './MetronomeSelectOption'
 
 // CALCULATOR
 export { default as CalculatorScreen } from './CalculatorScreen'
@@ -35,4 +33,6 @@ export { default as CalculatorKeyPad } from './CalculatorKeyPad'
 // WEATHER
 export { default as Weather } from './Weather'
 export { default as WeatherInfo } from './WeatherInfo'
+export { default as WeatherSelect } from './WeatherSelect'
 export { default as WeatherForecast } from './WeatherForecast'
+export { default as WeatherForecastDay } from './WeatherForecastDay'

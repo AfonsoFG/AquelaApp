@@ -1,9 +1,30 @@
 import React, { Component, Fragment } from 'react';
-
-import { AppSectionHeader, AppSectionFooter, WeatherInfo, WeatherForecast } from './'
+import { AppSectionHeader, AppSectionFooter, WeatherSelect, WeatherInfo, WeatherForecast } from './'
 import WeatherIcons from '../assets/data/weather-icons.json'; 
-import SVG from 'react-inlinesvg';
+// import SVG from 'react-inlinesvg';
+
 const apiKey = "8d2de98e089f1c28e1a22fc19a24ef04";
+
+const cities = {
+    '2736469': 'Penafiel',
+    '8010691': 'Angra Heroísmo',
+    '2270985': 'Beja',
+    '2742032': 'Braga',
+    '8010461': 'Bragança',
+    '2269514': 'Castelo Branco',
+    '2740637': 'Coimbra',
+    '8010502': 'Évora',
+    '2268339': 'Faro',
+    '3372783': 'Ponta Delgada',
+    '2264508': 'Portalegre',
+    '2735943': 'Porto',
+    '8010609': 'Santarém',
+    '8010625': 'Setúbal',
+    '2732773': 'Viana do Castelo',
+    '2732438': 'Vila Real',
+    '2732265': 'Viseu',
+    '2267057': 'Lisboa'
+}
 
 class Weather extends Component {
 
@@ -28,9 +49,6 @@ class Weather extends Component {
 
             forecast: '',
         }
-
-        this.cityId = '2736469';
-
     }
 
     componentDidMount = () => {
@@ -39,20 +57,22 @@ class Weather extends Component {
     }
 
 
-    selectCity = () => {
-        let selectCity = document.getElementById("selectCity");
-        this.cityId = selectCity.options[selectCity.selectedIndex].value;
+    changeCity = (event) => {
+
+        this.setState({
+            cityId: event.target.value
+        });
+
+        this.getWeather();
+        this.getForecast();
     }
 
     getWeather = async () => {
 
-        this.selectCity();
-
-        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?id=${this.cityId}&appid=${apiKey}&units=metric`);
+        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?id=${this.state.cityId}&appid=${apiKey}&units=metric`);
 
         const response = await api_call.json();
 
-        console.log(response);
 
         var prefix = 'wi-';
         var code = response.weather[0].id;
@@ -64,6 +84,9 @@ class Weather extends Component {
 
         icon = './assets/img/icons-weather/' + prefix + icon + '.svg';
  
+        let new_desc = response.weather[0].description;
+        new_desc = new_desc.charAt(0).toUpperCase() + new_desc.slice(1);
+
         this.setState({
             city: response.name,
             country: response.sys.country,
@@ -76,19 +99,15 @@ class Weather extends Component {
             weather_wind_deg: response.wind.deg,
             weather_icon: icon,
             weather_id: response.weather[0].id,
-            weather_description: response.weather[0].description
+            weather_description: new_desc
         })
 
     }
 
     getForecast = async () => {
 
-        this.selectCity();
-
-        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=${this.cityId}&appid=${apiKey}&units=metric`);
+        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=${this.state.cityId}&appid=${apiKey}&units=metric`);
         const response = await api_call.json();
-
-        console.log(response);
 
         this.setState({
             city: response.city.name,
@@ -97,7 +116,6 @@ class Weather extends Component {
         })
     }
 
-
     render() {
         return (
             <Fragment>
@@ -105,41 +123,32 @@ class Weather extends Component {
                 <div className="container pageBody pageWeather">
                     <div className='row'>
                         <div className='col-md-12 main'>
-                            <h3>Weather Info</h3>
+                            <h3>Weather</h3>
                         </div>
                     </div>
-
                     <div className="row">
-                        <div className="col-xs-12 form-container">
-                            <form>
-                                <label htmlFor="selectCity" className="">City</label>
-                                <select className="form-control" id={"selectCity"} defaultValue={"2736469"}>
-                                    <option value="2736469">Penafiel</option>
-                                    <option value="2735943">Porto</option>
-                                </select>
-                            </form>
-                            <hr />
-
-                            <WeatherInfo className="mt20"
-                                weather_id={this.state.weather_id}
-                                weather_icon={this.state.weather_icon}
-                                description={this.state.weather_description}
-                                temp={this.state.weather_temp}
-                                temp_min={this.state.weather_temp_min}
-                                temp_max={this.state.weather_temp_max}
-                                city={this.state.city}
-                                country={this.state.country}
-                                humidity={this.state.weather_humidity}
-                                pressure={this.state.weather_pressure}
-                                wind_speed={this.state.weather_wind_speed}
-                                wind_deg={this.state.weather_wind_deg}
+                        <div className="col-sm-6 col-sm-offset-3 ">
+                            <WeatherSelect id={"selectCity"} defaultValue={this.state.cityId} options={cities} onChange={this.changeCity} />
+                            <WeatherInfo
+                                weather_id = {this.state.weather_id}
+                                weather_icon = {this.state.weather_icon}
+                                description = {this.state.weather_description}
+                                temp = {Math.round(this.state.weather_temp)}
+                                temp_min = {Math.round(this.state.weather_temp_min)}
+                                temp_max = {Math.round(this.state.weather_temp_max)}
+                                city = {this.state.city}
+                                country = {this.state.country}
+                                humidity = {this.state.weather_humidity}
+                                pressure = {this.state.weather_pressure}
+                                wind_speed = {this.state.weather_wind_speed}
+                                wind_deg = {this.state.weather_wind_deg}
                             />
-                            <hr />
+                            </div>
+                            <div className="col-sm-12">
                             <WeatherForecast forecast={this.state.forecast} />
                         </div>
                     </div>
                 </div>
-
                 <AppSectionFooter />
             </Fragment>
         )

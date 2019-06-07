@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { MetronomeSelectOption } from './../components'
 
 class MetronomeSelect extends Component {
 
@@ -16,10 +15,8 @@ class MetronomeSelect extends Component {
 
         if (Object.keys(optionsList).length > 0) {
             Object.keys(optionsList).forEach(key => {
-                let value = optionsList[key];
-
                 return options.push(
-                    <MetronomeSelectOption key={key} optionValue={value} optionKey={key} />
+                    <option value={key} key={key}>{key}</option>
                 );
             });
         }

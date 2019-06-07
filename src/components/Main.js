@@ -16,27 +16,27 @@ class Main extends Component {
             <AppSectionHeader/>
             <section className="container pageBody pageMain">
                 <div className='row'>
-                    <div className='col-md-2 col-md-offset-1'>
+                    <div className='col-sm-2 col-sm-offset-1'>
                         <div className="box">
                             <Link to='/blog'><IcoBlog/><span>Blog</span></Link>
                         </div>
                     </div>
-                    <div className='col-md-2'>
+                    <div className='col-sm-2'>
                         <div className="box">
                             <Link to='/metronome'><IcoMetronome/><span>Metronome</span></Link>
                         </div>
                     </div>
-                    <div className='col-md-2'>
+                    <div className='col-sm-2'>
                         <div className="box">
                             <Link to='/calculator'><IcoCalculator/><span>Calculator</span></Link>
                         </div>
                     </div>
-                    <div className='col-md-2'>
+                    <div className='col-sm-2'>
                         <div className="box">
                             <Link to='/weather'><IcoWeather/><span>Weather</span></Link>
                         </div>
                     </div>
-                    <div className='col-md-2'>
+                    <div className='col-sm-2'>
                         <div className="box">
                             <Link to='/about'><IcoAbout/><span>About</span></Link>
                         </div>

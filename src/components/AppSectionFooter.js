@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import * as Scroll from 'react-scroll';
+
 import { ReactComponent as Logo } from '../assets/img/logos/logo.svg';
 import { ReactComponent as UpArrow } from '../assets/img/icons-site/up-arrow.svg';
-
 import { ReactComponent as IcoInstagram } from '../assets/img/icons-social/instagram.svg';
 import { ReactComponent as IcoFacebook } from '../assets/img/icons-social/facebook.svg';
-import { ReactComponent as IcoTwitter } from '../assets/img/icons-social/twitter.svg';
+import { ReactComponent as IcoGithub } from '../assets/img/icons-social/github.svg';
 import { ReactComponent as IcoLinkedin } from '../assets/img/icons-social/linkedin.svg';
 
 class AppSectionFooter extends Component {
@@ -16,10 +16,6 @@ class AppSectionFooter extends Component {
     }
 
     componentDidMount = () => {
-        this.scrollToTop();
-    }
-
-    componentDidUpdate = () => {
         this.scrollToTop();
     }
 
@@ -75,16 +71,16 @@ class AppSectionFooter extends Component {
                                     <li><Link to='/about'>About</Link></li>
                                 </ul>
                                 <div className="link-social">
-                                    <a href='https://linkedin.com' target="_blank" rel="noopener noreferrer" className="linkedin">
+                                    <a href='https://github.com/AfonsoFG' target="_blank" rel="noopener noreferrer" className="github">
+                                        <IcoGithub />
+                                    </a>
+                                    <a href='https://linkedin.com/in/AfonsoFG' target="_blank" rel="noopener noreferrer" className="linkedin">
                                         <IcoLinkedin />
                                     </a>
-                                    <a href='https://twitter.com' target="_blank" rel="noopener noreferrer" className="twitter">
-                                        <IcoTwitter />
-                                    </a>
-                                    <a href='https://facebook.com' target="_blank" rel="noopener noreferrer" className="facebook">
+                                    <a href='https://facebook.com/AfonsoFG' target="_blank" rel="noopener noreferrer" className="facebook">
                                         <IcoFacebook />
                                     </a>
-                                    <a href='https://instagram.com' target="_blank" rel="noopener noreferrer" className="instagram">
+                                    <a href='https://instagram.com/AfonsoFG' target="_blank" rel="noopener noreferrer" className="instagram">
                                         <IcoInstagram />
                                     </a>
                                 </div>
