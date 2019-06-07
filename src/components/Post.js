@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Comment } from './../components'
-import api from '../configs/api'
 import { Link } from "react-router-dom";
-
+import { Context } from '../context';
+import api from '../configs/api'
 
 class Post extends Component {
     constructor(props) {
@@ -48,11 +48,14 @@ class Post extends Component {
             <Fragment>
                 <h4 className='post-title'>{postData.titulo}</h4>
                 <div dangerouslySetInnerHTML={{ __html: preview }} className='post-content' />
+                
                 <Link to={`/post/${postData.id}`} className="lermais">Ler mais</Link>
                 <hr />
             </Fragment>
         )
     }
 }
+
+Post.contextType = Context;
 
 export default Post

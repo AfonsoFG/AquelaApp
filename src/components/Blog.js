@@ -1,35 +1,46 @@
 import React, { Component, Fragment } from 'react'
 import { Post, AppSectionHeader, AppSectionFooter, AppSectionSidebar } from './../components'
-import api from '../configs/api'
+import { Context } from '../context';
 import ReactPaginate from 'react-paginate';
+
+import api from '../configs/api'
+
 
 class Blog extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            data: []
+            posts: []
         }
     }
 
-    componentDidMount() {
+    fetchPosts = () => {
         fetch(api.url + api.endpoints.posts)
         .then((response) => {
             return response.json();
         })
         .then((json) => {
             this.setState({
-                data: json
+                posts: json
             });
+            console.log(json)
         });
     }
-  
-    componentDidUpdate() {
+
+    componentDidMount() {
+
+        this.fetchPosts();
+
+        this.context.subscribePosts((posts) => {
+            this.setState({posts});
+        });  
 
     }
-
+  
     printPosts = () => {
-        let listaPosts = this.state.data;
+        let listaPosts = this.state.posts;
+        console.log(listaPosts);
         let posts = [];
         if (listaPosts.length > 0) {
             listaPosts.map((post) => {
@@ -60,7 +71,6 @@ class Blog extends Component {
                             previousLabel={"Anterior"}
                             nextLabel={"Próximo"}
                         />
-
                     </div>
                     <div className='col-md-3 sidebar'>
                         <AppSectionSidebar/>
@@ -72,5 +82,7 @@ class Blog extends Component {
         )
     }
 }
+
+Blog.contextType = Context;
 
 export default Blog

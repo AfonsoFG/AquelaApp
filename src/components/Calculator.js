@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { AppSectionHeader, AppSectionFooter, CalculatorScreen, CalculatorKeyPad } from './'
+import SoundSuccess from '../assets/sounds/win31.mp3';
+import SoundError from '../assets/sounds/icq-uh-oh.mp3';
 
 class Calculator extends Component {
 
@@ -11,6 +13,9 @@ class Calculator extends Component {
             result: ""
         }
 
+        this.soundSuccess = new Audio(SoundSuccess);
+        this.soundError = new Audio(SoundError);
+
     }
 
     calculate = () => {
@@ -19,9 +24,15 @@ class Calculator extends Component {
             // eslint-disable-next-line
             const evalResult = eval(equation);
             const result = Number.isInteger(evalResult)? evalResult : evalResult.toFixed(2);
-            this.setState({result});
+            this.setState({
+                result
+            });
+            this.soundSuccess.play();
           } catch (error) {
-            alert('Invalid Mathematical Equation');
+            this.setState({
+                result: "Invalid Equation!"
+            });
+            this.soundError.play();
           }
     };
 
@@ -55,8 +66,12 @@ class Calculator extends Component {
                     <div className='row'>
                         <div className='col-md-12 main'>
                             <h3>CALCULADORA</h3>
-                            <CalculatorScreen result={this.state.result} input={this.state.input}></CalculatorScreen>
-                            <CalculatorKeyPad onClick={this.onClick}></CalculatorKeyPad>
+                            <div className="row">
+                                <div className="col-md-6 col-md-offset-3">
+                                    <CalculatorScreen result={this.state.result} input={this.state.input}></CalculatorScreen>
+                                    <CalculatorKeyPad onClick={this.onClick}></CalculatorKeyPad>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

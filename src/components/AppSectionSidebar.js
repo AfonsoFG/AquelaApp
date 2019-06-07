@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { AboutSection, WeatherInfo, WeatherSelect } from '.'
 import WeatherIcons from '../assets/data/weather-icons.json'; 
 
+
 const apiKey = "8d2de98e089f1c28e1a22fc19a24ef04";
 
 const cities = {

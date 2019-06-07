@@ -559,6 +559,29 @@ input[type=range]:focus::-ms-fill-upper {
     background: #3b454a;
 }
 
+/* PAGE SINGLE POSTS */
+
+.pageSinglePost .post-content {
+    margin-bottom: 60px
+}
+.pageSinglePost .headerReactions,
+.pageSinglePost .headerComments {
+    margin: 30px 0 15px
+}
+.pageSinglePost .btn-group {
+    width: 100%;
+}
+.pageSinglePost .btn-group button {
+    width: 25%;
+    padding: 6px 12px
+}
+.pageSinglePost .btn-group svg {
+    width: 30px;
+    vertical-align: middle;
+    margin-top: -2px
+
+}
+
 /* PAGE WEATHER*/
 
 .pageWeather .weatherBackground,
@@ -599,11 +622,11 @@ input[type=range]:focus::-ms-fill-upper {
     padding-top: 15px;
     font-weight: 700
 }
-.weatherDay {
-    font-size: 14px;
+.weatherDay {   
     text-align: center;
-    color: #FFF
-
+    color: #FFF;
+    font-size: 0.75em;
+    line-height: 1.25em
 }
 .weatherDay svg {
     width: 50px;
@@ -703,5 +726,6 @@ input[type=range]:focus::-ms-fill-upper {
         padding-bottom: 20px;
         margin-top: -20px;
     }
+
 
 }
