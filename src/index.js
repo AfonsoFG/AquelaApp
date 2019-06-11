@@ -12,12 +12,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const newStore = store();
 
 ReactDOM.render(
+    <Context.Provider value={ newStore }>
     <BrowserRouter>
-        <Context.Provider value={ newStore }>
+        
             <App />
-        </Context.Provider>
-    </BrowserRouter>,
+        
+    </BrowserRouter>
+    </Context.Provider>,
     document.getElementById('root')
 );
-
 module.hot.accept();

@@ -52,12 +52,13 @@ class SinglePost extends Component {
                 <AppSectionHeader />
                 <div className="container pageBody pageSinglePost">
                     <div className='row'>
+                        <div className="col-md-12">
+                            <h3>{post.titulo}</h3>
+                        </div>
                         <div className='col-md-9 main'>
                             <div className="slideContainer">
-                                <h3>{post.titulo}</h3>
                                 <div dangerouslySetInnerHTML={{ __html: post.conteudo }} className='post-content' />
                                 {this.printComments()}
-
                                 <h4 className="headerReactions">Reaja!</h4>
                                 <div className="btn-group" role="group" aria-label="...">
                                     <button type="button" className="btn btn-default"><IcoThumbsUp /></button>
@@ -65,7 +66,6 @@ class SinglePost extends Component {
                                     <button type="button" className="btn btn-default"><IcoAngry /></button>
                                     <button type="button" className="btn btn-default"><IcoSurprise /></button>
                                 </div>
-                                
                                 <h4 className="headerComments">Comente!</h4>
                                 <CommentForm />
                             </div>

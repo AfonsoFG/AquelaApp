@@ -1,7 +1,25 @@
+import api from './configs/api'
+
 const store = () => {
 
-    const posts = [];
+    /* POSTS */
+    let posts = [];
     const postsSubscribers = [];
+
+    const fetchPosts = () => {
+        fetch(api.url + api.endpoints.posts)
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            posts = json;
+        })
+        .then(() => {
+            postsSubscribers.forEach((sub) => {
+                sub(posts);
+            });
+        });
+    }
 
     const addPost = (post) => {
         posts.push(post);
@@ -32,7 +50,8 @@ const store = () => {
         addPost,
         getPosts,
         subscribePosts,
-        removePost
+        removePost,
+        fetchPosts
     }
 };
 

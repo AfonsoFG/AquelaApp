@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { AppSectionHeader, AppSectionFooter } from './../components'
+import { ReactComponent as IcoTodo } from '../assets/img/icons-site/todo.svg';
 import { ReactComponent as IcoBlog } from '../assets/img/icons-site/blog.svg';
 import { ReactComponent as IcoMetronome } from '../assets/img/icons-site/metronome.svg';
 import { ReactComponent as IcoAbout } from '../assets/img/icons-site/about.svg';
@@ -16,7 +17,12 @@ class Main extends Component {
             <AppSectionHeader/>
             <section className="container pageBody pageMain">
                 <div className='row'>
-                    <div className='col-sm-2 col-sm-offset-1'>
+                <div className='col-sm-2'>
+                        <div className="box">
+                            <Link to='/todo'><IcoTodo/><span>To do</span></Link>
+                        </div>
+                    </div>
+                    <div className='col-sm-2'>
                         <div className="box">
                             <Link to='/blog'><IcoBlog/><span>Blog</span></Link>
                         </div>

@@ -3,9 +3,6 @@ import { Post, AppSectionHeader, AppSectionFooter, AppSectionSidebar } from './.
 import { Context } from '../context';
 import ReactPaginate from 'react-paginate';
 
-import api from '../configs/api'
-
-
 class Blog extends Component {
 
     constructor(props) {
@@ -15,35 +12,20 @@ class Blog extends Component {
         }
     }
 
-    fetchPosts = () => {
-        fetch(api.url + api.endpoints.posts)
-        .then((response) => {
-            return response.json();
-        })
-        .then((json) => {
-            this.setState({
-                posts: json
-            });
-            console.log(json)
-        });
-    }
-
     componentDidMount() {
-
-        this.fetchPosts();
-
+        this.context.fetchPosts();
         this.context.subscribePosts((posts) => {
             this.setState({posts});
         });  
-
     }
   
     printPosts = () => {
         let listaPosts = this.state.posts;
-        console.log(listaPosts);
+
         let posts = [];
         if (listaPosts.length > 0) {
             listaPosts.map((post) => {
+                console.log(post);
                 return posts.push(
                     <Post dataPosts={ post } key={ post.id } mainPage="1" />
                 );

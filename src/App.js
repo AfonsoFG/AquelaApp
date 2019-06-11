@@ -1,5 +1,5 @@
 import React from 'react';
-import { Main, Blog, About, Metronome, Calculator, SinglePost, Error404, Weather } from './components'
+import { Main, Blog, About, Metronome, Calculator, SinglePost, Error404, Weather, Todo } from './components'
 import { Route, Switch } from "react-router-dom";
 import './assets/css/App.css';
 
@@ -12,6 +12,7 @@ function App() {
             <Route exact path='/metronome' component={Metronome} />
             <Route exact path='/calculator' component={Calculator} />
             <Route exact path='/weather' component={Weather} />
+            <Route exact path='/todo' component={Todo} />
             <Route exact path='/about' component={About} />
             <Route component={Error404} />
         </Switch>
