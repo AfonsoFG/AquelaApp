@@ -1,10 +1,5 @@
 // SITE PAGES
-export { default as Blog } from './Blog'
-export { default as Post } from './Post'
-export { default as SinglePost } from './SinglePost'
 export { default as About } from './About'
-
-
 export { default as Error404 } from './Error404'
 
 // SITE SECTIONS
@@ -17,8 +12,11 @@ export { default as AppSectionFooter } from './AppSectionFooter'
 export { default as AboutSection } from './AboutSection'
 
 // BLOG
-export { default as Comment } from './Comment'
-export { default as CommentForm } from './CommentForm'
+export { default as Blog } from './Blog'
+export { default as BlogComment } from './BlogComment'
+export { default as BlogCommentForm } from './BlogCommentForm'
+export { default as BlogPost } from './BlogPost'
+export { default as BlogSinglePost } from './BlogSinglePost'
 
 // METRONOME
 export { default as Metronome } from './Metronome'

@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react'
-import { Comment, CommentForm, AppSectionHeader, AppSectionFooter, AppSectionSidebar} from './../components'
+import { BlogComment, BlogCommentForm, AppSectionHeader, AppSectionFooter, AppSectionSidebar} from '.'
 import { ReactComponent as IcoThumbsUp } from '../assets/img/icons-site/thumbs-up.svg';
 import { ReactComponent as IcoAngry } from '../assets/img/icons-site/angry.svg';
 import { ReactComponent as IcoSurprise } from '../assets/img/icons-site/surprise.svg';
 import { ReactComponent as IcoLove } from '../assets/img/icons-site/love.svg';
 import api from '../configs/api'
 
-class SinglePost extends Component {
+class BlogSinglePost extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -25,8 +25,10 @@ class SinglePost extends Component {
             return response.json();
         })
         .then((json) => {
+            const comments = json.comments ? json.comments : [];
             this.setState({
-                post: json
+                post: json,
+                comments: comments
             });
         });
     }
@@ -37,7 +39,7 @@ class SinglePost extends Component {
         if (listaComments.length > 0) {
             listaComments.map((comment, index) => {
                 return comments.push(
-                    <Comment key={index} commentData={comment} />
+                    <BlogComment key={index} commentData={comment} />
                 );
             });
         }
@@ -45,8 +47,8 @@ class SinglePost extends Component {
     }
 
     render() {
-        let post = this.state.post;     
-        console.log(post);   
+        let post = this.state.post;
+        let reactions = post.reactions ? post.reactions : {like: '-', love: '-', angry: '-', surprise: '-'}
         return (
             <Fragment>
                 <AppSectionHeader />
@@ -62,13 +64,13 @@ class SinglePost extends Component {
                                 {this.printComments()}
                                 <h4 className="headerReactions">React</h4>
                                 <div className="btn-group" role="group" aria-label="...">
-                                    <button type="button" className="btn btn-default"><IcoThumbsUp /></button>
-                                    <button type="button" className="btn btn-default"><IcoLove /></button>
-                                    <button type="button" className="btn btn-default"><IcoAngry /></button>
-                                    <button type="button" className="btn btn-default"><IcoSurprise /></button>
+                                    <button type="button" className="btn btn-default"><IcoThumbsUp />{ reactions.like }</button>
+                                    <button type="button" className="btn btn-default"><IcoLove />{ reactions.love }</button>
+                                    <button type="button" className="btn btn-default"><IcoAngry />{ reactions.angry }</button>
+                                    <button type="button" className="btn btn-default"><IcoSurprise />{ reactions.surprise }</button>
                                 </div>
                                 <h4 className="headerComments">Comment</h4>
-                                <CommentForm />
+                                <BlogCommentForm />
                             </div>
                         </div>
                         <div className='col-md-3 sidebar'>
@@ -83,4 +85,4 @@ class SinglePost extends Component {
 
 }
 
-export default SinglePost
+export default BlogSinglePost

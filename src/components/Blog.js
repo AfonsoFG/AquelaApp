@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Post, AppSectionHeader, AppSectionFooter, AppSectionSidebar } from './../components'
+import { BlogPost, AppSectionHeader, AppSectionFooter, AppSectionSidebar } from './../components'
 import { Context } from '../context';
 import ReactPaginate from 'react-paginate';
 import * as Scroll from 'react-scroll';
@@ -37,7 +37,7 @@ class Blog extends Component {
         if (currentPosts.length > 0) {
             currentPosts.map((post) => {
                 return posts.push(
-                    <Post dataPosts={ post } key={ post.id } mainPage="1" />
+                    <BlogPost dataPosts={ post } key={ post.id } mainPage="1" />
                 );
             });
         }

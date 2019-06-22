@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class CommentForm extends Component {
+class BlogCommentForm extends Component {
  
     componentDidMount() {
 
@@ -32,4 +32,4 @@ class CommentForm extends Component {
 
 }
 
-export default CommentForm;
+export default BlogCommentForm;

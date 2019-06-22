@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import { Comment } from './../components'
+import { BlogComment } from '.'
 import { Link } from "react-router-dom";
 import { Context } from '../context';
 import api from '../configs/api'
 
-class Post extends Component {
+class BlogPost extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -34,7 +34,7 @@ class Post extends Component {
         if (listaComments.length > 0) {
             listaComments.map((comment, index) => {
                 return comments.push(
-                    <Comment key={index} commentData={comment} />
+                    <BlogComment key={index} commentData={comment} />
                 );
             });
         }
@@ -66,6 +66,6 @@ class Post extends Component {
     }
 }
 
-Post.contextType = Context;
+BlogPost.contextType = Context;
 
-export default Post
+export default BlogPost

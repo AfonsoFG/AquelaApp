@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-class Comment extends Component {
+class BlogComment extends Component {
 
     componentDidMount() {
         
@@ -21,4 +21,4 @@ class Comment extends Component {
 }
 
 
-export default Comment
+export default BlogComment
