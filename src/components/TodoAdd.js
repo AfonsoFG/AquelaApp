@@ -25,7 +25,7 @@ class TodoAdd extends Component {
     }
 
     addItem() {
-        this.props.onAdd(this.ref.current.value);
+        this.ref.current.value === '' ? alert('Empty item!') : this.props.onAdd(this.ref.current.value);
     }
 
     render() {

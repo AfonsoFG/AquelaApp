@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../assets/img/logos/logo.svg';
+import { ReactComponent as Logo } from '../assets/img/logos/logo2.svg';
 
 class AppSectionHeader extends Component {
     render() {

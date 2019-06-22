@@ -59,14 +59,14 @@ class SinglePost extends Component {
                             <div className="slideContainer">
                                 <div dangerouslySetInnerHTML={{ __html: post.conteudo }} className='post-content' />
                                 {this.printComments()}
-                                <h4 className="headerReactions">Reaja!</h4>
+                                <h4 className="headerReactions">React</h4>
                                 <div className="btn-group" role="group" aria-label="...">
                                     <button type="button" className="btn btn-default"><IcoThumbsUp /></button>
                                     <button type="button" className="btn btn-default"><IcoLove /></button>
                                     <button type="button" className="btn btn-default"><IcoAngry /></button>
                                     <button type="button" className="btn btn-default"><IcoSurprise /></button>
                                 </div>
-                                <h4 className="headerComments">Comente!</h4>
+                                <h4 className="headerComments">Comment</h4>
                                 <CommentForm />
                             </div>
                         </div>

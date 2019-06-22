@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import * as Scroll from 'react-scroll';
 
-import { ReactComponent as Logo } from '../assets/img/logos/logo.svg';
+import { ReactComponent as Logo } from '../assets/img/logos/logo2.svg';
 import { ReactComponent as UpArrow } from '../assets/img/icons-site/up-arrow.svg';
 import { ReactComponent as IcoInstagram } from '../assets/img/icons-social/instagram.svg';
 import { ReactComponent as IcoFacebook } from '../assets/img/icons-social/facebook.svg';

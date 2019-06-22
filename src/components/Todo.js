@@ -57,14 +57,11 @@ class Todo extends Component {
 
     changeStatus = (index) => {
 
-        const todos = this.state.todos;
+        const filteredTodos = this.state.filteredTodos;
 
-        todos[index].status = (todos[index].status === 'done') ? 'undone' : 'done';
+        filteredTodos[index].status = (filteredTodos[index].status === 'done') ? 'undone' : 'done';
 
-        const filteredTodos = this.getFilteredTodos(todos);
-
-        this.setState({
-            todos,
+        this.setState({ 
             filteredTodos
         });
 
