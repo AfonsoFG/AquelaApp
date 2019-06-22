@@ -13,12 +13,11 @@ const newStore = store();
 
 ReactDOM.render(
     <Context.Provider value={ newStore }>
-    <BrowserRouter>
-        
+        <BrowserRouter>
             <App />
-        
-    </BrowserRouter>
+        </BrowserRouter>
     </Context.Provider>,
     document.getElementById('root')
 );
+
 module.hot.accept();

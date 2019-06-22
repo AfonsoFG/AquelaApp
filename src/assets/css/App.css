@@ -621,6 +621,36 @@ input[type=range]:focus::-ms-fill-upper {
     background: #3b454a;
 }
 
+/* BLOG */
+.pageBlog .pagination {
+    margin: 0
+}
+
+.pageBlog .pagination > .active > a,
+.pageBlog .pagination > .active > a:focus,
+.pageBlog .pagination > .active > a:hover,
+.pageBlog .pagination > .active > span,
+.pageBlog .pagination > .active > span:focus,
+.pageBlog .pagination > .active > span:hover {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    color: #FFF
+}
+
+.pageBlog .pagination > li > a,
+.pageBlog .pagination > li > span,
+.pageBlog .pagination > li > a:focus,
+.pageBlog .pagination > li > a:hover,
+.pageBlog .pagination > li > span:focus,
+.pageBlog .pagination > li > span:hover {
+    color: #5cb85c
+}
+
+/* POST */
+.itemPost {
+    margin: 30px 0
+}
+
 /* PAGE SINGLE POSTS */
 
 .pageSinglePost .post-content {

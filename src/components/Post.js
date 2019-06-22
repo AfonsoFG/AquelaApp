@@ -43,15 +43,24 @@ class Post extends Component {
 
     render() {
         let postData = this.props.dataPosts;
-        console.log(postData);
-        let preview = postData.conteudo.substring(0, 250) + ' [...]';
+        let preview = postData.content.substring(0, 250) + ' [...]';
         return (
             <Fragment>
-                <h4 className='post-title'>{postData.titulo}</h4>
-                <div dangerouslySetInnerHTML={{ __html: preview }} className='post-content' />
                 
-                <Link to={`/post/${postData.id}`} className="lermais">Ler mais</Link>
-                <hr />
+                <div className="row itemPost">
+                    <div className='col-md-12'>
+                        <h4 className='post-title'>{postData.title}</h4>
+                    </div>
+                    <div className="col-md-4">
+                        <img src={ postData.image } alt='' className="img-responsive" />
+                        
+                    </div>
+                    <div className="col-md-8">
+                        <div dangerouslySetInnerHTML={{ __html: preview }} className='post-content' />
+                        <Link to={`/post/${postData.id}`} className="lermais btn btn-success btn-sm pull-right">Read more</Link>
+                    </div>
+                    
+                </div>
             </Fragment>
         )
     }

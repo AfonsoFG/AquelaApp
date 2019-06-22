@@ -9,10 +9,9 @@ import api from '../configs/api'
 class SinglePost extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             post: [],
-            comentarios: []
+            comments: []
         }
     }
 
@@ -21,19 +20,19 @@ class SinglePost extends Component {
     }
 
     getPost(id) {
-        fetch(api.url + api.endpoints.post + '/' + id + '?q=comentarios')
-            .then((response) => {
-                return response.json();
-            })
-            .then((json) => {
-                this.setState({
-                    post: json
-                });
+        fetch(api.url + api.endpoints.post + '/' + id + '?q=comments')
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            this.setState({
+                post: json
             });
+        });
     }
 
     printComments() {
-        let listaComments = this.state.comentarios;
+        let listaComments = this.state.comments;
         let comments = [];
         if (listaComments.length > 0) {
             listaComments.map((comment, index) => {
@@ -46,18 +45,20 @@ class SinglePost extends Component {
     }
 
     render() {
-        let post = this.state.post;
+        let post = this.state.post;     
+        console.log(post);   
         return (
             <Fragment>
                 <AppSectionHeader />
                 <div className="container pageBody pageSinglePost">
                     <div className='row'>
                         <div className="col-md-12">
-                            <h3>{post.titulo}</h3>
+                            <h3>{post.title}</h3>
                         </div>
                         <div className='col-md-9 main'>
-                            <div className="slideContainer">
-                                <div dangerouslySetInnerHTML={{ __html: post.conteudo }} className='post-content' />
+                            <div className="postContainer">
+                                <img src={post.image} alt={post.title} className={"img-responsive"} />
+                                <div dangerouslySetInnerHTML={{ __html: post.content }} className='post-content' />
                                 {this.printComments()}
                                 <h4 className="headerReactions">React</h4>
                                 <div className="btn-group" role="group" aria-label="...">

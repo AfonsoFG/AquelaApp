@@ -1,5 +1,5 @@
 {
-    "url": "https://aquelaapi.herokuapp.com",
+    "url": "https://thatapi.herokuapp.com",
     "version": "0.1.0",
     "endpoints": {
       "posts": "/posts",

@@ -2,36 +2,59 @@ import React, { Component, Fragment } from 'react'
 import { Post, AppSectionHeader, AppSectionFooter, AppSectionSidebar } from './../components'
 import { Context } from '../context';
 import ReactPaginate from 'react-paginate';
-
+import * as Scroll from 'react-scroll';
 class Blog extends Component {
 
     constructor(props) {
         super(props)
+        let currentPage = props.match.params.page ? props.match.params.page : 1;
         this.state = {
-            posts: []
+            posts: [],
+            currentPage: currentPage,
+            totalPages: 1,
+            pageLimit: 5
         }
     }
 
     componentDidMount() {
         this.context.fetchPosts();
         this.context.subscribePosts((posts) => {
-            this.setState({posts});
-        });  
+            const pageLimit = this.state.pageLimit;
+            const totalPages = Math.ceil(posts.length / pageLimit);
+            this.setState({ posts, totalPages });
+        });
     }
   
     printPosts = () => {
         let listaPosts = this.state.posts;
 
         let posts = [];
-        if (listaPosts.length > 0) {
-            listaPosts.map((post) => {
-                console.log(post);
+
+        const offset = (this.state.currentPage - 1) * this.state.pageLimit;
+
+        const currentPosts = listaPosts.slice(offset, offset + this.state.pageLimit);
+        
+        if (currentPosts.length > 0) {
+            currentPosts.map((post) => {
                 return posts.push(
                     <Post dataPosts={ post } key={ post.id } mainPage="1" />
                 );
             });
         }
         return posts;
+    }
+
+    scrollToTop = () => {
+        Scroll.animateScroll.scrollToTop();
+    }
+
+
+    handlePaginationClick = data => {
+        let selected = data.selected + 1;
+        this.props.history.push('/blog/' + selected)
+        this.setState({
+            currentPage: selected
+        })
     }
 
     render() {
@@ -44,15 +67,20 @@ class Blog extends Component {
                         <h3>Blog</h3>
                     </div>
                     <div className='col-md-9 main'>
-                        { this.printPosts() }
                         <ReactPaginate
-                            pageCount={10}
+                            disableInitialCallback={ true }
+                            initialPage = {parseInt(this.props.currentPage) -1}
+                            activeClassName={'active'}
+                            pageCount={parseInt(this.state.totalPages)}
                             pageRangeDisplayed={5}
                             marginPagesDisplayed={2}
                             containerClassName={"pagination"}
-                            previousLabel={"Anterior"}
-                            nextLabel={"Próximo"}
+                            previousLabel={"Previous"}
+                            nextLabel={"Next"}
+                            onPageChange={this.handlePaginationClick}
                         />
+                        { this.printPosts() }
+                        
                     </div>
                     <div className='col-md-3 sidebar'>
                         <AppSectionSidebar/>

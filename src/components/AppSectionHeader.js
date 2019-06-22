@@ -19,9 +19,9 @@ class AppSectionHeader extends Component {
                         </div>
                         <div id="navbar" className="navbar-collapse collapse">
                             <ul className="nav navbar-nav navbar-right">
-                                <li><Link to='/todo'>Todo</Link></li>
-                                <li><Link to='/blog'>Blog</Link></li>
+                                <li><Link to='/todo'>Todo List</Link></li>
                                 <li><Link to='/metronome'>Metronome</Link></li>
+                                <li><Link to='/blog'>Blog</Link></li>
                                 <li><Link to='/calculator'>Calculator</Link></li>
                                 <li><Link to='/weather'>Weather</Link></li>
                                 <li><Link to='/about'>About</Link></li>

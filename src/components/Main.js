@@ -19,7 +19,7 @@ class Main extends Component {
                 <div className='row'>
                 <div className='col-sm-2'>
                         <div className="box">
-                            <Link to='/todo'><IcoTodo/><span>To do</span></Link>
+                            <Link to='/todo'><IcoTodo/><span>Todo List</span></Link>
                         </div>
                     </div>
                     <div className='col-sm-2'>

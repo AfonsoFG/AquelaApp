@@ -8,6 +8,7 @@ function App() {
         <Switch>
             <Route exact path='/' component={Main} />
             <Route exact path='/blog' component={Blog} />
+            <Route exact path='/blog/:page' component={Blog} />
             <Route exact path='/post/:id' component={SinglePost} />
             <Route exact path='/metronome' component={Metronome} />
             <Route exact path='/calculator' component={Calculator} />
