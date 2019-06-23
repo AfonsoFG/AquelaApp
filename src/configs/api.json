@@ -1,10 +1,12 @@
 {
-    "url": "https://thatapi.herokuapp.com",
+    "url": "http://192.168.1.205:3001",
     "version": "0.1.0",
     "endpoints": {
       "posts": "/posts",
       "post": "/post",
-      "comments": "/comments"
+      "comments": "/comments",
+      "addComments": "/comments",
+      "updateReactions": "/updateReactions"
     }
   }
   

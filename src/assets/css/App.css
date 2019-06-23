@@ -131,8 +131,8 @@ h1, h2, h3, h4 {
 }
 
 .navbar-brand svg {
-    
     height: 30px;
+    width: auto;
     margin-top:-5px
 }
 
@@ -653,13 +653,60 @@ input[type=range]:focus::-ms-fill-upper {
 
 /* PAGE SINGLE POSTS */
 
+.pageSinglePost .form-control {
+    border-radius: 3px
+}
 .pageSinglePost .post-content {
-    margin-bottom: 60px
+    margin-bottom: 30px;
+    margin-top: 50px
+}
+
+
+.pageSinglePost .post-content p {
+    line-height: 2em;
+    margin-bottom: 20px
+}
+
+.pageSinglePost .post-content p:first-child:first-letter {
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 25px
+}
+
+.pageSinglePost .aComment {
+    border: 1px solid #dfe1e5;
+    border-radius: 3px;
+    padding: 20px;
+    margin: 20px 0;
+    color: #444
+}
+
+.pageSinglePost .aComment p {
+    margin-top: 40px
+}
+
+.pageSinglePost .aCommentDate {
+    text-align: right;
+    color: #AAA
+}
+
+.pageSinglePost .aCommentNumber {
+    height: 100px;
+    padding-top: 10px;
+}
+
+.pageSinglePost .aCommentNumber p {
+    text-align: center;
+    font-size: 130px;
+    font-style: oblique;
+    line-height: 0;
+    color: #EFEFEF;
 }
 
 .pageSinglePost .headerReactions,
-.pageSinglePost .headerComments {
-    margin: 30px 0 15px
+.pageSinglePost .headerComments,
+.pageSinglePost .headerComment {
+    margin: 50px 0 15px
 }
 
 .pageSinglePost .btn-group {
@@ -672,10 +719,67 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .pageSinglePost .btn-group svg {
-    width: 30px;
+    width: auto;
+    height: 25px;
     vertical-align: middle;
-    margin-top: -2px
+    margin-top: -3px;
+    margin-right: 10px
 }
+
+.pageSinglePost .btn-group .btn-angry {
+    padding: 0 20px
+}
+.pageSinglePost .btn-group .btn-angry svg {
+    height: 38px
+}
+
+.pageSinglePost .btn-group button {
+    color: #FFF;
+    font-size: 1.25em;
+    font-weight: 700;
+    padding: 3px 20px
+}
+
+.btn-default.active, .btn-default:active, .open > .dropdown-toggle.btn-default {
+    background: transparent;
+    border-color: transparent
+}
+
+.pageSinglePost .btn-like {
+    background: #337ab7;
+    border-color: #337ab7;
+}
+.pageSinglePost .btn-like:hover,
+.pageSinglePost .btn-like:focus
+{
+    background: #286192;
+    border-color: #286192;
+}
+.pageSinglePost .btn-love {
+    background: #C03A2B;
+    border-color: #C03A2B;
+}
+.pageSinglePost .btn-love:hover {
+    background: #992e22;
+    border-color: #992e22;
+}
+.pageSinglePost .btn-angry {
+    background: #f95428;
+    border-color: #f95428;
+}
+.pageSinglePost .btn-angry:hover {
+    background: #e03406;
+    border-color: #e03406;
+}
+.pageSinglePost .btn-surprise {
+    background: #ffc10e;
+    border-color: #ffc10e;
+}
+.pageSinglePost .btn-surprise:hover {
+    background: #d79f00;
+    border-color: #d79f00;
+}
+
 
 /* PAGE TODO */
 .pageTodo .todoList {
