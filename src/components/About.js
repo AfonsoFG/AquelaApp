@@ -13,7 +13,6 @@ class About extends Component {
                             <h3>About</h3>
                         </div>
                         <div className='col-md-9 main'>
-
                             <p>Oh well! I got myself into a React development course! Jesus Christ! What was I thinking????</p>
 
                             <p>For now ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae eros eu purus lacinia pulvinar. Nulla facilisi. Sed posuere lacinia purus et faucibus. Aliquam erat volutpat. Integer finibus sodales ipsum, vitae venenatis nisl accumsan in. Cras enim mi, vestibulum nec sem eget, sodales blandit tellus. Nulla at lorem nulla. Aliquam eleifend odio quis egestas aliquam. Aliquam egestas aliquam quam a consequat. Cras sed pharetra dolor, ut porttitor elit. Ut sit amet ex feugiat justo maximus egestas vel at ante. Cras posuere, nisl volutpat lacinia dapibus, felis enim faucibus mauris, eget lacinia justo urna quis enim. Curabitur condimentum ante tellus, non dignissim metus faucibus ut.</p>

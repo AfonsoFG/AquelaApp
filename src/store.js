@@ -7,7 +7,7 @@ const store = () => {
     const postsSubscribers = [];
 
     const fetchPosts = () => {
-        fetch(api.url + api.endpoints.posts)
+        fetch(api.url + api.endpoints.posts + '?q=comments')
         .then((response) => {
             return response.json();
         })

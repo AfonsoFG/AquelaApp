@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BlogComment, BlogCommentForm, AppSectionHeader, AppSectionFooter, AppSectionSidebar} from '.'
+import { BlogComment, BlogCommentForm, AppSectionHeader, AppSectionFooter, AppSectionSidebar} from './'
 import { ReactComponent as IcoThumbsUp } from '../assets/img/icons-site/thumbs-up.svg';
 import { ReactComponent as IcoAngry } from '../assets/img/icons-site/angry.svg';
 import { ReactComponent as IcoSurprise } from '../assets/img/icons-site/surprise.svg';

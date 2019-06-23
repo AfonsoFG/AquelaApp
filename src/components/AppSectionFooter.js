@@ -8,6 +8,7 @@ import { ReactComponent as IcoInstagram } from '../assets/img/icons-social/insta
 import { ReactComponent as IcoFacebook } from '../assets/img/icons-social/facebook.svg';
 import { ReactComponent as IcoGithub } from '../assets/img/icons-social/github.svg';
 import { ReactComponent as IcoLinkedin } from '../assets/img/icons-social/linkedin.svg';
+import { ReactComponent as LovePt } from '../assets/img/icons-site/love-pt.svg';
 
 class AppSectionFooter extends Component {
 
@@ -44,6 +45,7 @@ class AppSectionFooter extends Component {
                             <div className="col-md-3">
                                 <div className="link-title">Pages</div>
                                 <ul>
+                                    <li><Link to='/todo'>Todo List</Link></li>
                                     <li><Link to='/blog'>Blog</Link></li>
                                     <li><Link to='/metronome'>Metronome</Link></li>
                                     <li><Link to='/calculator'>Calculator</Link></li>
@@ -54,6 +56,7 @@ class AppSectionFooter extends Component {
                             <div className="col-md-3">
                                 <div className="link-title">The same pages</div>
                                 <ul>
+                                   <li><Link to='/todo'>Todo List</Link></li>
                                     <li><Link to='/blog'>Blog</Link></li>
                                     <li><Link to='/metronome'>Metronome</Link></li>
                                     <li><Link to='/calculator'>Calculator</Link></li>
@@ -64,6 +67,7 @@ class AppSectionFooter extends Component {
                             <div className="col-md-3">
                                 <div className="link-title">And again</div>
                                 <ul>
+                                    <li><Link to='/todo'>Todo List</Link></li>
                                     <li><Link to='/blog'>Blog</Link></li>
                                     <li><Link to='/metronome'>Metronome</Link></li>
                                     <li><Link to='/calculator'>Calculator</Link></li>
@@ -93,7 +97,7 @@ class AppSectionFooter extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                                <p className="text-center">AquelaApp © 2019</p>
+                                <p className="text-center"><a href='https://github.com/AfonsoFG/ThatApp' target="_blank" rel="noopener noreferrer">ThatApp</a> 2019 <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target="_blank" rel="noopener noreferrer">by-nc-sa 4.0</a><br/> Made with <LovePt /> by  <a href='https://afonsogomes.com' target="_blank" rel="noopener noreferrer">Afonso Gomes</a></p>
                             </div>
                         </div>
                     </div>

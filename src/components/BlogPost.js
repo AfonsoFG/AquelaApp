@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import { BlogComment } from '.'
 import { Link } from "react-router-dom";
 import { Context } from '../context';
-import api from '../configs/api'
 
 class BlogPost extends Component {
     constructor(props) {
@@ -12,41 +10,22 @@ class BlogPost extends Component {
         }
     }
 
-    componentDidMount() {
-        this.getComments(this.props.dataPosts.id);
-    }
-
-    getComments(id) {
-        fetch(api.url + api.endpoints.post + '/' + id + '?q=comentarios')
-            .then((response) => {
-                return response.json();
-            })
-            .then((json) => {
-                this.setState({
-                    comentarios: json.comentario
-                });
-            });
-    }
-
-    printComments() {
-        let listaComments = this.state.comentarios;
-        let comments = [];
-        if (listaComments.length > 0) {
-            listaComments.map((comment, index) => {
-                return comments.push(
-                    <BlogComment key={index} commentData={comment} />
-                );
-            });
-        }
-        return comments;
-    }
 
     render() {
         let postData = this.props.dataPosts;
         let preview = postData.content.substring(0, 250) + ' [...]';
+        let comment_text = '';
+
+        if (this.props.comments_count === 1) {
+            comment_text = 'comment'
+        } else if (this.props.comments_count  >= 2) {
+            comment_text = 'comments'
+        } else {
+            comment_text = 'comments yet! :('
+        }
+
         return (
             <Fragment>
-                
                 <div className="row itemPost">
                     <div className='col-md-12'>
                         <h4 className='post-title'>{postData.title}</h4>
@@ -57,8 +36,16 @@ class BlogPost extends Component {
                     </div>
                     <div className="col-md-8">
                         <div dangerouslySetInnerHTML={{ __html: preview }} className='post-content' />
-                        <Link to={`/post/${postData.id}`} className="lermais btn btn-success btn-sm pull-right">Read more</Link>
+                        <div className="row meta">
+                            <div className="col-md-6 totals">
+                            <span>{ this.props.reactions_count }</span> reactions <span>{ this.props.comments_count }</span> { comment_text }
+                        </div>
+                        <div className="col-md-6">
+                            <Link to={`/post/${postData.id}`} className="lermais btn btn-success btn-sm pull-right">Read more</Link>
+                        </div>
+                        </div>
                     </div>
+                    
                     
                 </div>
             </Fragment>

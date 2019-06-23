@@ -36,8 +36,10 @@ class Blog extends Component {
         
         if (currentPosts.length > 0) {
             currentPosts.map((post) => {
+                console.log(post);
+                const totalReactions = post.reactions.like + post.reactions.love + post.reactions.angry + post.reactions.surprise;
                 return posts.push(
-                    <BlogPost dataPosts={ post } key={ post.id } mainPage="1" />
+                    <BlogPost dataPosts={ post } reactions_count={ totalReactions } comments_count={ post.comments_count } key={ post.id } mainPage="1" />
                 );
             });
         }
