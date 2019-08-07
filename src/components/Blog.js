@@ -3,6 +3,8 @@ import { BlogPost, AppSectionHeader, AppSectionFooter, AppSectionSidebar } from 
 import { Context } from '../context';
 import ReactPaginate from 'react-paginate';
 import * as Scroll from 'react-scroll';
+
+
 class Blog extends Component {
 
     constructor(props) {
@@ -12,7 +14,8 @@ class Blog extends Component {
             posts: [],
             currentPage: currentPage,
             totalPages: 1,
-            pageLimit: 5
+            pageLimit: 5,
+            postsAvailable: false
         }
     }
 
@@ -26,24 +29,31 @@ class Blog extends Component {
     }
   
     printPosts = () => {
-        let listaPosts = this.state.posts;
+        if (!this.state.postsAvailable) {
+            let listaPosts = this.state.posts;
 
-        let posts = [];
+            let posts = [];
+    
+            const offset = (this.state.currentPage - 1) * this.state.pageLimit;
+    
+            const currentPosts = listaPosts.slice(offset, offset + this.state.pageLimit);
+            
+            if (currentPosts.length > 0) {
+                currentPosts.map((post) => {
+                    const totalReactions = post.reactions.like + post.reactions.love + post.reactions.angry + post.reactions.surprise;
+                    return posts.push(
+                        <BlogPost dataPosts={ post } reactions_count={ totalReactions } comments_count={ post.comments_count } key={ post.id } mainPage="1" />
+                    );
+                });
+            }
 
-        const offset = (this.state.currentPage - 1) * this.state.pageLimit;
-
-        const currentPosts = listaPosts.slice(offset, offset + this.state.pageLimit);
-        
-        if (currentPosts.length > 0) {
-            currentPosts.map((post) => {
-                console.log(post);
-                const totalReactions = post.reactions.like + post.reactions.love + post.reactions.angry + post.reactions.surprise;
-                return posts.push(
-                    <BlogPost dataPosts={ post } reactions_count={ totalReactions } comments_count={ post.comments_count } key={ post.id } mainPage="1" />
-                );
-            });
+            this.setState({ postsAvailable: true });
+            
+            return posts;
+        } else {
+            return 'Loading posts';
         }
-        return posts;
+        
     }
 
     scrollToTop = () => {

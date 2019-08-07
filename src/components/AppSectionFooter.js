@@ -65,15 +65,8 @@ class AppSectionFooter extends Component {
                                 </ul>
                             </div>
                             <div className="col-md-3">
-                                <div className="link-title">And again</div>
-                                <ul>
-                                    <li><Link to='/todo'>Todo List</Link></li>
-                                    <li><Link to='/blog'>Blog</Link></li>
-                                    <li><Link to='/metronome'>Metronome</Link></li>
-                                    <li><Link to='/calculator'>Calculator</Link></li>
-                                    <li><Link to='/weather'>Weather</Link></li>
-                                    <li><Link to='/about'>About</Link></li>
-                                </ul>
+                                <div className="link-title">More about me</div>
+                                
                                 <div className="link-social">
                                     <a href='https://github.com/AfonsoFG' target="_blank" rel="noopener noreferrer" className="github">
                                         <IcoGithub />

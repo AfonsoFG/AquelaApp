@@ -1,5 +1,5 @@
 {
-    "url": "http://192.168.1.205:3001",
+    "url": "https://thatapi.herokuapp.com",
     "version": "0.1.0",
     "endpoints": {
       "posts": "/posts",
