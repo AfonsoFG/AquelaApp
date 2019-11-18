@@ -1,5 +1,7 @@
 ## ThatApp
 
+[![Build Status](https://travis-ci.org/AfonsoFG/ThatApp.svg?branch=master)](https://travis-ci.org/AfonsoFG/ThatApp)
+
 This app was created for an intesive React Development course.
 
 ### The idea
