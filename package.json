@@ -21,7 +21,8 @@
     "start": "react-scripts start PORT=3000",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "coverage": "npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,9 +40,11 @@
     ]
   },
   "devDependencies": {
+    "coveralls": "^3.0.7",
     "expose-loader": "^0.7.5",
     "jquery": "^3.4.1",
     "json-loader": "^0.5.7",
+    "nyc": "^14.1.1",
     "react-hot-loader": "^4.9.0",
     "typescript": "^3.7.2"
   }
