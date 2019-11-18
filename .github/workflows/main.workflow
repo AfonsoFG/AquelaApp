@@ -5,5 +5,5 @@ workflow "Pull Request" {
 
 action "ESLint" {
   uses = "hallee/eslint-action@master"
-  secrets = ["GITHUB_TOKEN"]
+  secrets = ["19555a1d99e072c0bdfed8bd03a0f40e8e0b570c"]
 }
